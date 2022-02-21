@@ -12,9 +12,6 @@ var heartfill:[String] = []
 var todos:[String] = []
 var notes:[String] = []
 class ViewController: UIViewController {
-    
-    
-    
     var isClicked: Bool = false
 //    name favorite icon
     @IBOutlet weak var favName: UIButton!
@@ -23,22 +20,11 @@ class ViewController: UIViewController {
             isClicked = false
             favName.setTitle("Favorite", for: .normal)
             print("favorite")
-            
-            
-            
 //                let Storyboard = UIStoryboard(name: "Main", bundle: nil)
 //                let vc = Storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 //
 //                self.navigationController?.pushViewController(vc, animated: true)
-                
-            
-            
-            
-            
-            
-            
-            
-            
+
         }
         
         else {
@@ -46,8 +32,6 @@ class ViewController: UIViewController {
             favName.setTitle("UnFavorite", for: .normal)
             print("unfavorite")
             
-            
-            
 //                let Storyboard = UIStoryboard(name: "Main", bundle: nil)
 //                let vc = Storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 //
@@ -57,8 +41,6 @@ class ViewController: UIViewController {
             
             
         }
-        
-        
         
     }
     
@@ -79,8 +61,6 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     
-   
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return todos.count
@@ -98,7 +78,6 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     }
 
 
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let modify = UIContextualAction(style: .normal, title: "Delete", handler: {(ac:UIContextualAction, view:UIView, success:(Bool) -> Void)in
             DispatchQueue.main.async {
@@ -113,9 +92,6 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
                 let Storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = Storyboard.instantiateViewController(withIdentifier: "ToDoNextViewController") as! ToDoNextViewController
                 
-             
-                
-           
                 vc.editdata =  todos[indexPath.row]
                 vc.getFav =  notes[indexPath.row]
            
@@ -130,9 +106,6 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             }
             
         })
-        
-        
-        
         
         edit.backgroundColor = .blue
         modify.backgroundColor = .red

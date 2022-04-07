@@ -38,3 +38,43 @@ class CameraViewController: UIViewController,UINavigationControllerDelegate,UIIm
 
 
 }
+
+
+//method 2
+import UIKit
+
+class CameraViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    @IBOutlet var imageView: UIImageView!
+      @IBOutlet var chooseBuuton: UIButton!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+   
+
+
+    
+
+    
+    @IBAction func clickBtn(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+              imagePicker.delegate = self
+              imagePicker.allowsEditing = true
+
+              present(imagePicker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            imageView.image = image
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+

@@ -1,6 +1,7 @@
 
 import UIKit
 import CarbonKit
+//pod 'CarbonKit'
 
 class CameraViewController: UIViewController,CarbonTabSwipeNavigationDelegate {
     var controllernames = ["plain","Texture","Wallpaper","Abstract"]
@@ -20,7 +21,8 @@ class CameraViewController: UIViewController,CarbonTabSwipeNavigationDelegate {
         
         carbonTabSwipeNavigation.setSelectedColor(UIColor.white)
         carbonTabSwipeNavigation.setNormalColor(UIColor.gray)
-        
+        //        carbonTabSwipeNavigation.setSelectedColor(UIColor.white,font: UIFont(name:"OpenSauceOne-SemiBold" , size: 14)!)
+//        carbonTabSwipeNavigation.setNormalColor(UIColor.gray,font: UIFont(name:"OpenSauceSans-Regular" , size: 14)!)
         
         carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(view.frame.width / 4, forSegmentAt: 0)
         carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(view.frame.width / 4, forSegmentAt: 1)

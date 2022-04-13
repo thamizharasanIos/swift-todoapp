@@ -3,7 +3,7 @@
 //  login
 //
 //  Created by thamizharasan t on 28/03/22.
-//2vc
+//2vc palet
 
 import UIKit
 
@@ -43,7 +43,7 @@ class SenderViewController: UIViewController {
 //  login
 //
 //  Created by thamizharasan t on 28/03/22.
-//1vc
+//1vc camera
 
 import UIKit
 

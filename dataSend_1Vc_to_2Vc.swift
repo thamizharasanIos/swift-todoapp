@@ -24,7 +24,19 @@ class firstViewController: UIViewController {
     
 
 }
-
+//////////or///////////////
+  
+    @IBAction func deleteBtnAction(_ sender: UIButton) {
+   performSegue(withIdentifier: "Deletepopup", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Deletepopup"{
+            let VC = segue.destination as! Deletepopup
+            VC.listToken = listToken
+        }
+    }
+///////////////////////////////////
 
 //
 //  Next2ViewController.swift

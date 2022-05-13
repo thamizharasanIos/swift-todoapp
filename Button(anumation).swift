@@ -26,3 +26,36 @@ class Button: UIViewController {
     }
     
 }
+
+//uiView tap the button view move left to right
+import UIKit
+
+class Animation: UIViewController {
+var top = false
+    @IBOutlet weak var topview: UIView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    func moveRight(view: UIView){
+        if top == false{
+            UIView.animate(withDuration: 1, animations: { [self] in
+                view.center.x += 300
+                topview.isHidden = false
+            })
+            top = true
+        }else{
+            UIView.animate(withDuration: 1, animations: { [self] in
+                view.center.x += 300
+                topview.isHidden = true
+            })
+            top = false
+        }
+       
+       
+    }
+  
+    @IBAction func btn(_ sender: Any) {
+        moveRight(view: self.topview)
+
+  }
+}

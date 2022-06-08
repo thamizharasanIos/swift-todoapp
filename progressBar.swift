@@ -78,5 +78,44 @@ class ProgressBar: UIProgressView{
      
   }
 }
+//
+
+class LaunchScreen: UIViewController {
+    var timer = Timer()
+    @IBOutlet var progressBar:
+    UIView!
+    @IBOutlet var progressView:UIProgressView!
+    var progress:Float = 0.0
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        progressView.progress = 0.0
+        self.progressView.progressTintColor = UIColor.clear
+    
+        progressbar()
+    
+    }
+    
+    
+
+    func progressbar(){
+        progressView.progress = progress
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: {(timer)in
+            self.progress += 0.03
+            self.progressView.progress = self.progress
+            if self.progressView.progress == 1.0{
+                self.progressView.progress = 0.0
+               
+                
+            }else{
+               
+            }
+        })
+    }
+
+}
+
 
 

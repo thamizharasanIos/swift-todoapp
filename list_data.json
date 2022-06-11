@@ -1,0 +1,126 @@
+[
+  {
+    "title": "",
+    "type" : "Banner",
+    "movie_data": [
+        {
+            "id" : "1",
+            "image" : "home_bg",
+            "name" : "Saani Kaayidham",
+            "language" : "Tamil",
+            "genre" : "Action",
+            "time" : "02:30 hrs",
+            "share_link" : ""
+        },
+        {
+            "id" : "2",
+            "image" : "tenet",
+            "name" : "Tenet",
+            "language" : "English",
+            "genre" : "Sci-Fi",
+            "time" : "02:05 hrs",
+            "share_link" : ""
+        },
+        {
+            "id" : "3",
+            "image" : "don_profile",
+            "name" : "Don",
+            "language" : "Tamil",
+            "genre" : "Comedy",
+            "time" : "02:40 hrs",
+            "share_link" : ""
+        }
+    ]
+  },
+  {
+      "title": "New Releases",
+      "type" : "Grid",
+      "movie_data": [
+          {
+              "id" : "4",
+              "image" : "beast",
+              "name" : "Beast",
+              "share_link" : ""
+          },
+          {
+              "id" : "5",
+              "image" : "saani_kaitham",
+              "name" : "Saani Kaayidham",
+              "share_link" : ""
+          },
+          {
+              "id" : "6",
+              "image" : "maaran",
+              "name" : "Maaran",
+              "share_link" : ""
+          }
+      ]
+  },
+  {
+      "title": "Thriller Movies",
+      "type" : "Grid",
+      "movie_data": [
+          {
+              "id" : "7",
+              "image" : "sardhaar",
+              "name" : "Sardhaar",
+              "share_link" : ""
+          },
+          {
+              "id" : "8",
+              "image" : "extraction",
+              "name" : "Extraction",
+              "share_link" : ""
+          },
+          {
+              "id" : "9",
+              "image" : "ratsasan",
+              "name" : "Ratsasan",
+              "share_link" : ""
+          }
+      ]
+  },
+  {
+      "title": "",
+      "type" : "Language",
+      "language_data": [
+          {
+              "color" : "red",
+              "language" : "Tamil"
+          },
+          {
+              "color" : "green",
+              "language" : "Malayalam"
+          },
+          {
+              "color" : "blue",
+              "language" : "English"
+          }
+      ]
+  },
+  {
+      "title": "Action Movies",
+      "type" : "Grid",
+      "movie_data": [
+          {
+              "id" : "10",
+              "image" : "hitmans_wife_bodyguard",
+              "name" : "Hitman's Wife's Bodyguard",
+              "share_link" : ""
+          },
+          {
+              "id" : "11",
+              "image" : "extraction",
+              "name" : "Extraction",
+              "share_link" : ""
+          },
+          {
+              "id" : "12",
+              "image" : "rrr_bg",
+              "name" : "RRR",
+              "share_link" : ""
+          }
+      ]
+  }
+]
+

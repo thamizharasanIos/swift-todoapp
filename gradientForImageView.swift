@@ -17,23 +17,28 @@ class Image: UIViewController {
 
 
 }
-// class
+// class for imageview
 class GradientImageView:UIImageView{
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
+        
+        
     }
     override func layoutSubviews() {
       super.layoutSubviews()
+        layer.sublayers?.forEach { $0.removeFromSuperlayer() }
       createGradientLayer()
     }
+
     func createGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
-        gradientLayer.startPoint = CGPoint(x: 0.6, y: 0)
-        gradientLayer.endPoint = CGPoint(x:0.6, y:1)
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor(named: "backgroundColor")?.cgColor]
-        self.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.colors = [UIColor(named: "backgroundColor")?.cgColor as Any,UIColor.clear.cgColor ]
+        self.layer.addSublayer(gradientLayer)
+       
     }
     
 }

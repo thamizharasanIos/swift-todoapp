@@ -1,0 +1,12 @@
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 2
+        let index = Int(offSet + horizontalCenter) / Int(width)
+        let slide = getSlide[index]
+       self.tittleLbl.text = slide.tittle
+       
+        
+//            UserDefaults.standard.set(true, forKey: "isOpen")
+        pageControll.currentPage = index
+    }

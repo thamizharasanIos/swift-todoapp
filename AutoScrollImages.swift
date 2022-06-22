@@ -34,3 +34,26 @@ class BannerTableViewCell: UITableViewCell {
        
     }
 }
+//connecting... function
+    
+    var myticker : Timer?
+func LabelAnimating() {
+    myticker  = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(showLoading), userInfo: nil, repeats: true)
+}
+
+@objc func showLoading() {
+
+    if movieNameLabel.text == "Connecting." {
+        movieNameLabel.text = "Connecting.."
+    } else if movieNameLabel.text == "Connecting.." {
+        movieNameLabel.text = "Connecting..."
+    } else if movieNameLabel.text == "Connecting..." {
+        movieNameLabel.text = "Connecting."
+    } else {
+        movieNameLabel.text = "Connecting."
+    }}
+
+func StopLoading()  {
+         myticker?.invalidate()
+}
+   

@@ -43,7 +43,168 @@ class CameraViewController: UIViewController,CarbonTabSwipeNavigationDelegate {
         }
       }
 }
+// CarbonKit backgroundColerChenge 
 
+//
+//  ProfileVc.swift
+//  SDC Global Cinema Release
+//
+//  Created by thamizharasan t on 13/06/22.
+//
+
+import UIKit
+import CarbonKit
+import SwiftUI
+
+class ProfileVc: UIViewController,CarbonTabSwipeNavigationDelegate  {
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    @IBOutlet weak var Views: UIView!
+    var controllernames = ["Payment History","Gifted History","PREFERRED LANGUAGE"]
+    var carbonTabSwipeNavigation = CarbonTabSwipeNavigation()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//       carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: controllernames, delegate: self)
+//        carbonTabSwipeNavigation.insert(intoRootViewController: self,andTargetView: Views)
+//
+//
+//        carbonTabSwipeNavigation.carbonSegmentedControl?.backgroundColor = .init(named: "backgroundColor")
+//
+//        carbonTabSwipeNavigation.setIndicatorColor(.init(named: "backgroundColor"))
+//        carbonTabSwipeNavigation.setIndicatorHeight(1)
+//
+//
+//
+//        carbonTabSwipeNavigation.setSelectedColor(UIColor(named: "pagecontrol")!)
+//        carbonTabSwipeNavigation.setNormalColor(UIColor.white)
+        setViewPager()
+//        carbonTabSwipeNavigation.setSelectedColor(UIColor(named: "pagecontrol")!,font: UIFont(name:"FontsFree-Net-SFProDisplay-Semibold.ttf" , size: 14)!)
+//        carbonTabSwipeNavigation.setNormalColor(UIColor.white,font: UIFont(name:"OpenSauceSans-Regular" , size: 14)!)
+        
+        
+
+ 
+       
+    }
+    func setViewPager(){
+        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: controllernames, delegate: self)
+         carbonTabSwipeNavigation.insert(intoRootViewController: self,andTargetView: Views)
+        carbonTabSwipeNavigation.toolbar.isTranslucent = true
+
+         carbonTabSwipeNavigation.carbonSegmentedControl?.backgroundColor = .init(named: "backgroundColor")
+        carbonTabSwipeNavigation.setTabExtraWidth(36)
+         carbonTabSwipeNavigation.setIndicatorHeight(0)
+        carbonTabSwipeNavigation.setTabBarHeight(28)
+         carbonTabSwipeNavigation.setSelectedColor(UIColor(named: "pagecontrol")!)
+         carbonTabSwipeNavigation.setNormalColor(UIColor.white)
+    }
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+          // return viewController at index
+        guard  let  storyboard = storyboard else {return
+            UIViewController()}
+        if index == 0{
+            
+            return storyboard.instantiateViewController(withIdentifier: "PaymentHistoryVc")
+        }else if index == 1{
+            
+            return storyboard.instantiateViewController(withIdentifier: "GiftedHistoryVc")
+        }else{
+            return storyboard.instantiateViewController(withIdentifier: "PreferredLanguageVc")
+        }
+      }
+    
+    
+    @IBAction func SettingsButton(_ sender: Any) {
+        performSegue(withIdentifier: "SettingsVc", sender: nil)
+    }
+
+}
+//CarbonTabSwipeSegmentedControl
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+
+    // Add extra width to each segment and calculate the segment width
+    CGFloat totalWidth = 0;
+    for (UIView *segment in self.segments) {
+        NSInteger index = [self.segments indexOfObject:segment];
+        CGFloat width = [self getWidthForSegmentAtIndex:index];
+        CGRect segmentRect = segment.frame;
+        segmentRect.origin.x = totalWidth;
+        segmentRect.size.width = width + _tabExtraWidth;
+        segment.frame = segmentRect;
+        totalWidth += segmentRect.size.width;
+        
+//        NSLog(@"%@", CGRectMake(0, 0, segment.frame.size.width-24, segment.frame.size.height));
+        UIView * v = [[UIView alloc]initWithFrame: CGRectMake(12, 0, segment.frame.size.width-24, segment.frame.size.height)];
+        v.tag = 1000;
+        v.layer.cornerRadius = segment.frame.size.height/2;
+        [segment insertSubview:v atIndex:0];
+    }
+
+    _tabExtraWidth = 0;
+
+//syncImageTintColor
+
+- (void)syncImageTintColor {
+    for (UIView *segment in self.segments) {
+        if ([self.segments indexOfObject:segment] == self.selectedSegmentIndex) {
+            UIView * v = segment.subviews.firstObject;
+            if(v.tag == 1000){
+                v.backgroundColor = [_imageSelectedColor colorWithAlphaComponent:0.12];
+            }
+        }else{
+            UIView * v = segment.subviews.firstObject;
+            if(v.tag == 1000){
+                v.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.15];
+            }
+        }
+        for (UIView *subView in segment.subviews) {
+            if ([subView isKindOfClass:[UIImageView class]]) {
+                if ([self.segments indexOfObject:segment] == self.selectedSegmentIndex) {
+                    subView.tintColor = _imageSelectedColor;
+                } else {
+                    subView.tintColor = _imageNormalColor;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Kingfisher
 
 import UIKit
 import Kingfisher

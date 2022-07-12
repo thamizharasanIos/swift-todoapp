@@ -26,6 +26,13 @@ class Share: UIViewController {
         presentShareSheet()
     }
     
+   func share(){
+            
+        let items: [Any] = ["I have gifted you \((listData?.movieDetails.movieName ?? "")) on SDC. Here is you coupon code : \((result.coupanCode ?? "")) Check the link here, \((listData?.movieDetails.dyanamic_url ?? ""))"]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        self.present(ac, animated: true)
+   }
+    // or 
      func presentShareSheet(){
         guard let image = UIImage(systemName: "bell"), let url = URL(string: "https://www.google.com") else{
             return
